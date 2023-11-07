@@ -32,15 +32,21 @@ public class PDA
             System.out.println("How old are you?");
             try {
                 age = scanner.nextInt();
-                if (age < LOWER_BOUND || age != 0) {
-                    System.out.println(age+" is too young!");
-                } else if (age == 0) {
+                int lowest_age = age/2+7;
+                int highest_age = (age-7)*2;
+                int Lrounded = lowest_age + 1;
+                if (age == 0) {
                     shouldContinue = false;
+                    System.out.println ("Bye");
+                } else if (age < LOWER_BOUND) {
+                    System.out.println(age+" is too young!");
+                } else if (age % 2 != 0) {
+                    System.out.println ("The highest age you can date is " + highest_age);
+                    System.out.println ("The lowest age you can date is " + Lrounded);
+                    System.out.println ("Enter 0 to exit");
                 } else {
-                    int lowest_age = age/2+7;
-                    int highest_age = (age-7)*2;
-                    System.out.println
-                    ("You can date a person " + highest_age + " years or younger and " + lowest_age + " years or older");
+                    System.out.println ("The highest age you can date is " + highest_age);
+                    System.out.println ("The lowest age you can date is " + lowest_age);
                     System.out.println ("Enter 0 to exit");
                 }
             } catch (InputMismatchException error) {
